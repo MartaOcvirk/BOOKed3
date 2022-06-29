@@ -1,4 +1,3 @@
-
 <template>
 
   <div id="app">
@@ -7,22 +6,52 @@
         <h1> BOOKed </h1>
       </a>
 
-      <router-link to="/">
+      <router-link to="/" v-if="!isLoggedIn">
         <h2>Home</h2>
       </router-link>
-      <router-link to="/login">
+      <router-link to="/main" v-if="isLoggedIn">
+        <h2>Home</h2>
+      </router-link>
+      <router-link to="/login" v-if="!isLoggedIn">
         <h2>Prijava</h2>
       </router-link>
-      <router-link to="/signup">
+      <router-link to="/signup" v-if="!isLoggedIn">
         <h2>Pridruži se</h2>
       </router-link>
-      <a @click="logout()"><h2>Odjava</h2></a>
-   </nav>
+      <a @click="logout" v-if="isLoggedIn">
+        <h2>Odjava</h2>
+      </a>
+    </nav>
   </div>
   <router-view />
-   
+
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import firebase from 'firebase'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const isLoggedIn = ref(true)
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    isLoggedIn.value = true // if we have a user
+  } else {
+    isLoggedIn.value = false // if we do not
+  }
+})
+const logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      router.push('/');
+    }, error => {
+      console.log(error)
+    })
+}
+</script>
 
 <style lang="css">
 h1 {
@@ -51,7 +80,6 @@ nav {
   a {
     font-weight: bold;
     color: #2c3e50;
-  
 
     &.router-link-exact-active {
       color: #42b983;
@@ -59,37 +87,3 @@ nav {
   }
 }
 </style>
-
-<!--
-<script>
-/*import { firebase } from '@/firebase'; */
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in.
-    console.log(user.email);
-  } else {
-    // User is not signed in.
-    console.log('No user');
-  }
-});
-
-export default {
-  setup() {
-    
-  },
-
-methods: {
-  logout() {
-    firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      this.$router.push({ name: 'home'});
-    });
-  },
-},
-}
-
-</script>
--->

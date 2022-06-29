@@ -46,3 +46,8 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 ```sh
 npm run lint
 ```
+## Useful references
+- https://vuejs.org/guide/
+- https://learnvue.co/tutorials/vue-firebase-authentication
+- https://www.tutorialspoint.com/firebase
+- https://github.com/bezkoder/vue-3-firestore

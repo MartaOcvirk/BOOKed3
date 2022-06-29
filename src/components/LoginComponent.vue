@@ -8,8 +8,7 @@
     </div>
 </template>
 <script>
-// import firebase from 'firebase/app'
-// import 'firebase/firestore'
+import firebase from 'firebase'
 
 export default {
   name: "login",
@@ -29,7 +28,6 @@ export default {
         .signInWithEmailAndPassword(this.username, this.password)
         .then((result) => {
         console.log('Uspješna prijava', result);
-
         this.$router.replace({ name: 'main'});
     })
     .catch(function(e) {

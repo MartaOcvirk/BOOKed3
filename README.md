@@ -1,10 +1,10 @@
-# booked-fresh
+# BOOKed aplikacija
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplikacija naziva BOOKed je namijenjena svim ljubiteljima knjiga. Uz pomoć jednostavnog sučelja korisnicima će biti ponuđena mogućnost vođenja dnevnika o pročitanim knjigama kao i zapisivanju knjiga koje žele pročitati. Aplikacija nudi mogućnost unosa i pregleda pročitanih knjiga, zatim stvaranje liste knjiga koju korisnik ima želju pročitati i link na Gradsku knjižnicu i čitaonicu Pula, tj. na E-katalog knjižnice kako bi korisnik u svakom trenutku mogao provjeriti dostupnost željene knjige. Uz pomoć aplikacije ljubitelji knjiga imati će vlastiti dnevnik pročitanih knjiga koji može poslužiti kako za prisjećanje je li određena knjiga pročitana ili ne tako i za poticanje ponovnog čitanja knjiga koje su se korisniku svidjele, ali i boljem razumijevanju koja vrsta književnosti korisnika najviše privlači.
 
-## Recommended IDE Setup
+## Izgled aplikacije
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Aplikacija jednostavnog i prozračnog izgleda te jednostavnog sučelja kako bi omogućila što lakše snalaženje svakom korisniku.
 
 ## Customize configuration
 
@@ -22,30 +22,6 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
 ## Useful references
 - https://vuejs.org/guide/
 - https://learnvue.co/tutorials/vue-firebase-authentication

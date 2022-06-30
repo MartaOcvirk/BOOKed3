@@ -36,9 +36,9 @@ const isLoggedIn = ref(true)
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    isLoggedIn.value = true // if we have a user
+    isLoggedIn.value = true // ako imamo korisnika
   } else {
-    isLoggedIn.value = false // if we do not
+    isLoggedIn.value = false // ako nemamo korisnika
   }
 })
 const logout = () => {

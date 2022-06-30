@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <!-- Task table -->
+      <!-- table -->
       <div class="box2">
         <table class="table table-bordered mt-5">
           <thead>
@@ -81,19 +81,19 @@ export default {
       task: "",
       editedTask: null,
       statuses: ["to-do", "in-progress", "finished"],
-      /* Status could be: 'to-do' / 'in-progress' / 'finished' */
+      /* Status može biti 'to-do' / 'in-progress' / 'finished' */
       tasks: []
     };
   },
   methods: {
     /**
-     * Capitalize first character
+     * Veliko slovo
      */
     capitalizeFirstChar(str) {
       return str.charAt(0).toUpperCase() + str.slice(1);
     },
     /**
-     * Change status of task by index
+     * Promjena statusa
      */
     changeStatus(index) {
       let newIndex = this.statuses.indexOf(this.tasks[index].status);
@@ -103,7 +103,7 @@ export default {
       this.updateCollection();
     },
     /**
-     * Deletes task by index
+     * Brisanje (task) knjige
      */
     deleteTask(index) {
       this.tasks.splice(index, 1);
@@ -111,7 +111,7 @@ export default {
       this.updateCollection();
     },
     /**
-     * Edit task
+     * Uređivanje (task) knjige
      */
     editTask(index) {
       this.task = this.tasks[index].name;
@@ -120,19 +120,19 @@ export default {
       this.updateCollection();
     },
     /**
-     * Add / Update task
+     * Dodavanje i updatanje (task) knjige
      */
     submitTask() {
       if (this.task.length === 0) return;
-      /* We need to update the task */
+      /* updatanje */
       if (this.editedTask != null) {
         this.tasks[this.editedTask].name = this.task;
         this.editedTask = null;
       } else {
-        /* We need to add new task */
+        /* dodavanje */
         this.tasks.push({
           name: this.task,
-          status: "todo",
+          status: "to-do",
         });
       }
       this.task = "";
